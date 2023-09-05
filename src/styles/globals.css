@@ -7,6 +7,8 @@ body {
   color: #fff;
 }
 
+/* Loading ripple animation */
+
 .ripple {
   display: inline-block;
   position: relative;

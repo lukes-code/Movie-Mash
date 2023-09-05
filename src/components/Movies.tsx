@@ -1,5 +1,4 @@
 import React from "react";
-import Spinner from "./Spinner";
 import Movie from "./Movie";
 
 type MoviesProps = {

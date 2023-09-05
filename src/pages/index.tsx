@@ -1,50 +1,25 @@
+import { useQuery } from "@tanstack/react-query";
 import Movies from "@/components/Movies";
+import Spinner from "@/components/Spinner";
+import { fetchPopularMovies } from "./api/movies";
 
-type HomeProps = {
-  movies: any[];
-};
+export default function Home() {
+  const {
+    data: movies,
+    isLoading,
+    isError,
+  } = useQuery(["popularMovies"], fetchPopularMovies, {
+    initialData: [],
+    cacheTime: 1000 * 60 * 5,
+  });
 
-export default function Home({ movies }: HomeProps) {
+  if (isLoading) return <Spinner />;
+
+  if (isError) return <p>Error fetching data</p>;
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Movies data={movies} />
-      <p>hi</p>
     </main>
   );
 }
-
-export const getStaticProps = async () => {
-  const url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1`;
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_TOKEN}`,
-    },
-  };
-
-  try {
-    const response = await fetch(url, options);
-
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    const data = await response.json();
-    const popularMovies = data.results;
-
-    return {
-      props: {
-        movies: popularMovies,
-      },
-    };
-  } catch (error) {
-    console.error(`Error fetching data: ${error}`);
-
-    return {
-      props: {
-        movies: [],
-      },
-    };
-  }
-};
