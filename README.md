@@ -1,4 +1,4 @@
-# Movie-Mash
+# Movie-Mash :movie_camera:
 
 A project to play around with the View Transition browser API as well as react-query for the first time.
 
@@ -12,7 +12,12 @@ Using context to store the saved movie listings to prevent refetching on re-rout
 This can also be done without using Context API by making use of getStaticProps to house the fetch, as this will run the query at build time.
 However, this will become an issue down the line if you wish to implement live fetching such as movie search.
 
-Example of the view transition (33fps gif):
+## Example of the view transition (33fps gif)
+
 ![ezgif com-video-to-gif (5)](https://github.com/lukes-code/movie-mash/assets/21207597/99b9f81e-2285-445b-9bac-343195c1a1a1)
 
 
+## Example of the view transition (10fps gif - which does it no justice)
+
+
+![ezgif com-video-to-gif (6)](https://github.com/lukes-code/movie-mash/assets/21207597/0e4b1352-0953-43b2-bb8f-631025c74eef)
