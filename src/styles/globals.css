@@ -2,9 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #000;
   color: #fff;
+}
+
+/*  View transition */
+
+::view-transition-new(backdrop):only-child {
+  animation: 300ms ease var(--animation-delay, 0s) fade-in;
+}
+
+::view-transition-old(backdrop):only-child {
+  animation: 500ms ease var(--animation-delay, 0s) fade-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* Loading ripple animation */

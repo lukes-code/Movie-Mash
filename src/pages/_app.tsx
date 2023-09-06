@@ -1,12 +1,9 @@
-// _app.tsx
-import {
-  Hydrate,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useNextRouterViewTransitions } from "use-view-transitions/next";
+import "@/styles/globals.css";
+import { MovieProvider } from "@/context/movieContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -15,10 +12,10 @@ export default function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
+    <MovieProvider>
+      <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
-      </Hydrate>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </MovieProvider>
   );
 }

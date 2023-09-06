@@ -1,11 +1,7 @@
 import React from "react";
 import Movie from "./Movie";
 
-type MoviesProps = {
-  data: any;
-};
-
-const Movies = ({ data }: MoviesProps) => {
+const Movies = ({ data }: any) => {
   return (
     <div className="flex flex-wrap justify-center">
       {data.map((movie: any) => (

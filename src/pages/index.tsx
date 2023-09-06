@@ -1,21 +1,21 @@
-import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 import Movies from "@/components/Movies";
 import Spinner from "@/components/Spinner";
+import { useMovieContext } from "@/context/movieContext";
 import { fetchPopularMovies } from "./api/movies";
 
 export default function Home() {
-  const {
-    data: movies,
-    isLoading,
-    isError,
-  } = useQuery(["popularMovies"], fetchPopularMovies, {
-    initialData: [],
-    cacheTime: 1000 * 60 * 5,
-  });
+  const { movies, setMovies } = useMovieContext();
 
-  if (isLoading) return <Spinner />;
+  useEffect(() => {
+    if (!movies.length) {
+      fetchPopularMovies().then((fetchedMovies) => {
+        setMovies(fetchedMovies);
+      });
+    }
+  }, [movies, setMovies]);
 
-  if (isError) return <p>Error fetching data</p>;
+  if (!movies.length) return <Spinner />;
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
