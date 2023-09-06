@@ -14,10 +14,11 @@ However, this will become an issue down the line if you wish to implement live f
 
 ## Example of the view transition (33fps gif)
 
-![ezgif com-video-to-gif (5)](https://github.com/lukes-code/movie-mash/assets/21207597/99b9f81e-2285-445b-9bac-343195c1a1a1)
+![ezgif com-video-to-gif (7)](https://github.com/lukes-code/Movie-Mash/assets/21207597/63607141-4c7f-44f4-b28b-8094eb1c6099)
 
 
-## Example of the view transition (10fps gif - which does it no justice)
+## Example of the view transition (Video)
+
+https://github.com/lukes-code/Movie-Mash/assets/21207597/c9b0999c-15d3-46a2-9992-d533efe02f7e
 
 
-![ezgif com-video-to-gif (6)](https://github.com/lukes-code/movie-mash/assets/21207597/0e4b1352-0953-43b2-bb8f-631025c74eef)
