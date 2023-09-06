@@ -14,8 +14,9 @@ body {
 
 /*  View transition */
 
-::view-transition-new(backdrop):only-child {
-  animation: 300ms ease var(--animation-delay, 0s) fade-in;
+#backdrop {
+  view-transition-name: backdrop;
+  animation: 500ms ease var(--animation-delay, 0s) fade-in;
 }
 
 ::view-transition-old(backdrop):only-child {
