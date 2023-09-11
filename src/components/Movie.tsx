@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MovieData } from "./Movies";
+import Progress from "./Progress";
 
 const Movie = ({ movie }: { movie: MovieData }) => {
   return (
@@ -10,7 +11,7 @@ const Movie = ({ movie }: { movie: MovieData }) => {
       }}
       className="m-4"
     >
-      <div>
+      <div className="relative pb-8">
         {/* Next Image seems to fetch much slower */}
         <img
           className="rounded-lg h-[300px]"
@@ -18,6 +19,14 @@ const Movie = ({ movie }: { movie: MovieData }) => {
           alt="movie poster"
           style={{ viewTransitionName: `movie-${movie.id}` }}
         />
+        {movie?.vote_average && (
+          <div
+            className="absolute bottom-4 left-2 bg-black h-[40px] w-[40px] rounded-[999px]"
+            style={{ viewTransitionName: `rating-${movie.id}` }}
+          >
+            <Progress percentage={movie.vote_average * 10} />
+          </div>
+        )}
       </div>
     </Link>
   );
