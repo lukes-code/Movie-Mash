@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import Movies from "@/components/Movies";
 import Spinner from "@/components/Spinner";
-import { useMovieContext } from "@/context/movieContext";
 import { fetchPopularMovies } from "./api/movies";
+import { useMovieContext } from "@/context/MovieContext";
 
 export default function Home() {
   const { movies, setMovies } = useMovieContext();

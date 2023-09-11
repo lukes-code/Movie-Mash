@@ -3,7 +3,7 @@ import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useNextRouterViewTransitions } from "use-view-transitions/next";
 import "@/styles/globals.css";
-import { MovieProvider } from "@/context/movieContext";
+import { MovieProvider } from "@/context/MovieContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
